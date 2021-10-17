@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A Journey Into Understanding How Load Balancers Scale"
-categories: Cloud Architecture, Distributed Systems, How Stuff Works
+categories: [Cloud Architecture, Distributed Systems, How Stuff Works]
 ---
 ## What is this about?
 
