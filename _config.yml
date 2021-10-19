@@ -33,6 +33,22 @@ theme: minima
 plugins:
   - jekyll-feed
 
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      comments: true
+
+repository: ocheselandrei/ocheselandrei #GitHub username/repo-name
+
+comments:
+  provider: "utterances"
+  utterances:
+    theme: "github-light" # "github-dark"
+    issue_term: "pathname"
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
