@@ -128,3 +128,5 @@ You cannot implement a Network Load Balancer at the level of abstraction of a di
 Thus, the Network Load Balancer is truly a distributed systems architecture building block: easy to consume for a distributed system implementation, but hard to implement and having to go to lower abstraction levels for implementation.
 
 As a next step from here, it is fascinating to further see and understand how the 3 different Network Load Balancer implementations mentioned in this article use 3 different solutions for the same hard problem: distributed TCP flow tracking at scale.
+
+{% include comments.html %}
