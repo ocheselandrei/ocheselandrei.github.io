@@ -5,6 +5,8 @@ tags: [Cloud Architecture, Distributed Systems, How Stuff Works]
 ---
 ## What is this about?
 
+![How does a Load Balancer work?](/assets/LB-how.drawio.png)
+
 We all know that a Load Balancer helps horizontally scale an application, but how does the Load Balancer itself scale?
 
 How come it does not become itself the Single Point of Failure (SPOF) for the application?
