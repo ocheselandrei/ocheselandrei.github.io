@@ -3,11 +3,11 @@ layout: post
 title:  "The book that made me stop worrying about algorithms"
 tags: [Influential Books, Algorithms]
 ---
-While reading through the Medium newsletters I receive, I noticed a theme about people describing books that influcenced them, and realized I have such a book to share as well.
+While reading through the Medium newsletters I receive, I noticed a theme about people describing books that influenced them, and realized I have such a book to share as well.
 
 ## Background
 
-At some point after I started my proffesional career, I went searching for resources about better understanding algorithms. Why did I do that?
+At some point after I started my professional career, I went searching for resources about better understanding algorithms. Why did I do that?
 
 I was not satisfied with the explanations I found for more complex algorithmic problems, starting from the textbook descriptions during high-school and college. Each explanation seemed coming from a totally different thinking pattern, and it just jumped into the solution: this is how to represent the input, the output, the steps between them. But it was not clear how could a regular person invent such a solution, generalize such a solution to multiple problems.
 
@@ -17,11 +17,13 @@ So, I felt like there had to be a more "deterministic" way of understanding and 
 
 ## The [How to Think about Algorithms](https://www.amazon.com/Think-About-Algorithms-Jeff-Edmonds/dp/0521614104) book
 
+![How to think about algorithms book cover](https://images-na.ssl-images-amazon.com/images/I/41XKjfQ7kdL._SX348_BO1,204,203,200_.jpg)
+
 This is a book with children pictures in it and is intended as course material for undergrad college students. So some "serious" algorithm researchers would probably not consider looking at or recommending it.
 
 But for me, it was the most influential book on algorithms I ever read. It shaped the way I currently think about algorithms. It made me stop feeling anxious and impressed when someone mentions a fancy algorithm. I think those undergrad students that need to study this book are lucky.
 
-I sticked with more takeways from this book than from any other similar book I read. For example, I also went through [The Algorithm Design Manual](https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202). The most relevant thing I still remember from there is the advice to not freeze when presented with a complicated problem. Go through a checklist instead, like plane pilots did when in danger of hitting a quickly approaching mountain. And that is good advice. But I only remembered about that advice when writing this. So the things I read in the How to Think about Algorithms book sticked even more.
+I got more takeaways from this book than from any other similar book I read. For example, I also went through [The Algorithm Design Manual](https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202). The most relevant thing I still remember from there is the advice to not freeze when presented with a complicated problem. Go through a checklist instead, like plane pilots did when in danger of hitting a quickly approaching mountain. And that is good advice. But I only remembered about that advice when writing this. So the things I read in the How to Think about Algorithms book stuck even more.
 
 ## My takeaways from the book
 
@@ -38,7 +40,7 @@ A loop invariant describes the things that don't change about your algorithm sta
   * Most of the algorithms you need to write on a daily basis fit here, so it is the default loop invariant to start with.
 * More of the output
   * Your state encodes a partial output. At each iteration, you add one more element to the partial output. You may have to re-scan the input to do that. Exit when you (somehow) know that the output can no longer receive elements.
-  * Graph shortest paths as example. Trickier loop invariant type.
+  * Shortest graph paths as example. Trickier loop invariant type.
 * Reduce the search space
   * Your state encodes the search space where your target may be in. At each iteration, you decrease that search space. Exit when the search space is reduced to the target (or nothing).
   * Binary search as example
@@ -71,7 +73,7 @@ I particularly liked the clarifications that the book brings related to dynamic 
 
 The book clarifies that dynamic programming is an optimization for recursive back-tracking. Now this still sounds complicated. In fact, dynamic programming is just an optimization for implementing a recursive algorithm in general, if possible.
 
-You do not start by thinking: How do I find a smart dynamic programming solution to this problem? No. You start by trying to frame your problem as a recursive problem. What are the sub-problems, the smaller instances of your problem? How can you combine the solutions to the sub-problems into a solution for the problem? What is the recurrence relation between the solutions of the problem and the solutions of the sub-problems? This is less intimidating and I would say more interesting to start with.
+You do not start by thinking: How do I find a smart dynamic programming solution to this problem? No. You start by trying to frame your problem as a recursive problem. What are the sub-problems, the smaller instances of your problem? How can you combine the solutions to the sub-problems into a solution for the problem? What is the recurrence relation between the solutions of the problem and the solutions of the sub-problems? This is less intimidating, and I would say more interesting to start with.
 
 Say you found a recurrence relation (formula). You could just write your algorithm according to it. But you may notice you need to re-compute solutions to smaller problems. You may notice that the solutions to the sub-problems do not depend on the surrounding bigger problem. Then you could just cache the solutions to smaller problems. Or, you could come-up with a smart way to order the solutions to the sub-problems such that when you get to a bigger problem you find the solutions to the smaller problems already computed. And you may use less memory than the cache in the process. And look, dynamic programming. But it all starts from just solving a problem in regular recursive terms.
 
@@ -79,4 +81,4 @@ Say you found a recurrence relation (formula). You could just write your algorit
 
 I wrote this without re-opening and re-reading the book. It may not be a 100% accurate description of what the book says. But it is how I think about algorithms now after reading the book.
 
-In the next article, I will follow-up with a practical example of applying the above principles. We will look at the use-case of a problem regularly used in programming interviews, see how existing solutions break the principles, and come-up with both iterative and dynamic programming solutions according to these principles.
+In the next article, I will follow up with a practical example of applying the above principles. We will look at the use-case of a problem regularly used in programming interviews, see how existing solutions break the principles, and come-up with both iterative and dynamic programming solutions according to these principles.
