@@ -3,7 +3,7 @@ layout: post
 title:  "How To Think About Algorithms - Practical Example"
 tags: [Influential Books, Algorithms]
 ---
-This is a practical application of the algorithm design principles from the "How To Think About Algorithms" book. I introduced a bit of theory for the principles in the previous blog post: [The book that made me stop worrying about algorithms]{% post_url 2021-11-21-the-book-that-made-me-stop-worrying-about-algorithms.md %}.
+This is a practical application of the algorithm design principles from the "How To Think About Algorithms" book. I introduced a bit of theory for the principles in the previous blog post: [The book that made me stop worrying about algorithms](https://ocheselandrei.github.io/2021/11/21/the-book-that-made-me-stop-worrying-about-algorithms.html).
 
 I will use as a starting point a regularly encountered interview problem and its solution from a well-known programming interviews preparation book: [Cracking the Coding Interview](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850). The problem and solution are copied here from the paper copy I own.
 
