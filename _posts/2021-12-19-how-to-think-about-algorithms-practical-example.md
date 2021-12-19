@@ -95,13 +95,15 @@ Once you designed the loop invariant, and designed the single step needed to mai
 
 ```
 int maxSum(int[] A) {
+    //let's say empty array has 0 max sum - but you could throw as well
+    if (A.length == 0) return 0; 
     //setting up the loop invariant variables
     //the overall max sum for input read so far - the output we need
-    int ms = 0;
+    int ms = A[0];
     //the max sum for the sequence ending in the last element of input read so far
-    int msLast = 0;
+    int msLast = A[0];
 
-    for (int i = 0; i < A.length; i++) {
+    for (int i = 1; i < A.length; i++) {
         if (msLast <= 0) {
             msLast = A[i];
         } else {
