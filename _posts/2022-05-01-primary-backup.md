@@ -12,10 +12,9 @@ Recently I started more seriously to implement solutions from the labs in there.
 
 I finished the primary-backup lab, but passing all the unit-tests was surprisingly hard, with about 3 re-writes needed in the process.
 
-And the resulting implementation, while providing single-copy consistency, is both inefficient in performance and lacking in availability (as expected after all, given CAP).
+And the resulting implementation, while providing single-copy consistency, is both inefficient in performance and lacking in availability (as expected after all, given [CAP](https://en.wikipedia.org/wiki/CAP_theorem)).
 
 This got me thinking more about this mechanism I used to take for granted before:
-
 * Does a relational database look good for the use-case?
 * OK, will throw a primary-backup mechanism in there and our availability problems will be solved for free, no downsides from just using a single server.
 * Well, not so simple.
@@ -31,7 +30,7 @@ Some problems to address with a primary-backup mechanism providing single-copy c
 
 * Before the primary returns OK for a client write, it must wait confirmation that the write reached the backup. This ensures no data loss if the primary dies. Downsides: performance loss from synchronous replication; possible bugs from protocol complexity: keep retrying until the backup answers, but be prepared to switch to a different backup if the current one died, to not get stuck.
 * Before the primary returns OK for a client read, surprisingly it must also wait confirmation from the backup. This is to prevent split-brain, when both the primary and the backup think they are primaries. Again performance loss.
-* The primary must send the operations to the backup in exactly the same order it received them. This maintains single-copy, or linearizable operations. A simple implementation may handle operations one by one, with severe performance loss.
+* The primary must send the operations to the backup in exactly the same order it received them. This maintains single-copy consistency. A simple implementation may handle operations one by one, with severe performance loss.
 * A backup cannot upgrade to primary until it finished receiving the entire state from the old primary. It must wait and hope that even if the old primary appears as dead to the system, it is still sending the state. But if the primary really died, the alternatives do not look good: remain stuck, or start with incomplete state, thus data loss.
 * The network is unreliable. The messages get lost, delayed, duplicated (replayed). You don't want the backup applying old state because it received a message from the "past". And what does the backup do when it receives a message from the "future"?
 * While this is not a lab concern, in real-world, for a newly started backup, how do you transfer efficiently say 3TB of state from the primary to the standby, while having the primary under heavy load? How much time will the primary and thus the entire system be unavailable for handling operations?
