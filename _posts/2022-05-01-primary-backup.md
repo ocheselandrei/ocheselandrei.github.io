@@ -1,10 +1,8 @@
-```
 ---
 layout: post
 title:  "I'll just use primary-backup for my database - well, think twice"
-tags: [Distributed Systems, dslabs]
+tags: [Distributed Systems, DSLabs]
 ---
-```
 
 ### Introduction
 
@@ -62,7 +60,7 @@ Let's visit the AWS RDS primary-backup solutions in light of the previous findin
 
 * [Multi-AZ DB instance deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.html) - single backup, synchronous replication, just like in the lab. Knowing what I know now, I would strongly avoid it. And the AWS documentation does warn about "increased write and commit latency". But without awareness of possible issues and explicitly looking for limitations, it is easy to miss the warnings.
 * [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) - two **readable** backups, asynchronous replication, thus better performance. But asynchronous replication means possibility of data loss, if primary dies while there is replica lag. Thus, I would still avoid it.
-* [Aurora DB cluster]: Aurora decouples compute (the db instances) from storage. The storage is shared between the primary and the read replicas. Any writes from the primary are seen nearly instantly by read replicas, thus any read replica can quickly promote to primary. The hard part of synchronous state replication is pushed to the storage layer, with a good description in [Introducing the Aurora Storage Engine](https://aws.amazon.com/blogs/database/introducing-the-aurora-storage-engine/). The data is replicated to 6 storage nodes. The storage can serve reads if there are at least 3 nodes up and writes if there are at least 4 nodes up. Quorum usage and replicas recovering from surrounding replicas are ideas we also saw in the Viewstamped Replication protocol. This is the option I would recommend. The main reason is that the system has a single mode of operation (storage replication happens regardless if you use read replicas or not), and thus performance is predictable.
+* [Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.html#Aurora.Managing.FaultTolerance): Aurora decouples compute (the db instances) from storage. The storage is shared between the primary and the read replicas. Any writes from the primary are seen nearly instantly by read replicas, thus any read replica can quickly promote to primary. The hard part of synchronous state replication is pushed to the storage layer, with a good description in [Introducing the Aurora Storage Engine](https://aws.amazon.com/blogs/database/introducing-the-aurora-storage-engine/). The data is replicated to 6 storage nodes. The storage can serve reads if there are at least 3 nodes up and writes if there are at least 4 nodes up. Quorum usage and replicas recovering from surrounding replicas are ideas we also saw in the Viewstamped Replication protocol. This is the option I would recommend. The main reason is that the system has a single mode of operation (storage replication happens regardless if you use read replicas or not), and thus performance is predictable.
 
 ### Takeaway
 
