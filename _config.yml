@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   My name is Andrei Ochesel. I have been working as a software developer since around 2003. 
   I started this blog to help me better learn technical stuff by also writing about it. 
   If it helps someone else in the process, it gets even better. 
-  I am currently a software development engineer at Amazon. 
+  I am currently a senior software development engineer at Amazon. 
   All opinions are my own.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
