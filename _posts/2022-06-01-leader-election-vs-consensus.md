@@ -4,6 +4,10 @@ title:  "Leader Election vs Distributed Consensus - Which One Is Harder?"
 tags: [Distributed Systems, DSLabs]
 ---
 
+![Batman vs Superman](/assets/yulia-matvienko-kgz9vsP5JCU-unsplash.jpg)
+[Source](https://unsplash.com/photos/kgz9vsP5JCU)
+
+
 ### Introduction
 
 Long time ago, when I interviewed at Amazon, I was asked about distributed Leader Election. Few years after, when I became an interviewer, I found out Leader Election was one criterion, at the time, to differentiate senior candidates.  
